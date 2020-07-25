@@ -1,0 +1,247 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --color-principal: #64ffda;
+  --color-titulos: #ccd6f6;
+  --color-titulos-proyectos: #e6f1ff;
+  --color-subtitulos: #8892b0;
+  --color-background: #0a192f;
+}
+@font-face {
+  font-family: "SF Mono";
+  src: url(/fuentes/SFMonoRegular.woff);
+}
+
+@font-face {
+  font-family: "Calibre";
+  src: url(/fuentes/Calibre-Semibold.woff);
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Calibre Medium";
+  src: url(/fuentes/Calibre-Medium.woff);
+  font-weight: 300;
+}
+
+/****GLOBALES*****/
+body {
+  overflow-x: hidden;
+  background: var(--color-background);
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+.titulos-principales,
+.titulos-secundarios {
+  color: var(--color-titulos);
+  font-family: "Calibre";
+  text-transform: capitalize;
+  font-size: 40px;
+}
+.titulos-secundarios {
+  font-size: 24px;
+}
+
+.textos-secundarios {
+  color: var(--color-subtitulos);
+  font-family: "Calibre Medium";
+  font-size: 18px;
+  line-height: 1.4;
+  margin: 20px 0 30px;
+}
+
+.mini-texto,
+.btn {
+  color: var(--color-principal);
+  font-family: "SF Mono";
+}
+.mini-texto {
+  font-size: 13px;
+  margin-bottom: 15px;
+  transform: scale(1, 1.1);
+}
+
+/*******BOTONES*******/
+.btn {
+  background: none;
+  padding: 15px 20px;
+  border: 1px solid var(--color-principal);
+  border-radius: 2px;
+  text-transform: capitalize;
+}
+.btn-proyectos {
+  padding: 5px;
+  border: none;
+  font-size: 0.8rem;
+  color: var(--color-titulos);
+  i {
+    font-size: 1.4rem;
+  }
+}
+
+/******MIXINS***********/
+@mixin flexbox($direction, $justify, $align) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+/********INICIO HEADER-PRINCIPAL*/
+
+.header-fixed {
+  position: fixed;
+  width: 100%;
+  height: 500px;
+  padding: 20px 25px 0px;
+  margin-top: 0;
+  .navegacion-principal {
+    width: 100%;
+    height: 50px;
+    position: relative;
+    @include flexbox(row, space-between, center);
+    margin-bottom: 70px;
+  }
+  .logo {
+    width: 50px;
+    height: 50px;
+  }
+  .hamburguesa {
+    width: 50px;
+    height: 50px;
+    @include flexbox(column, space-evenly, flex-end);
+    padding: 6px 8px;
+  }
+  .linea-hamburguesa {
+    width: 35px;
+    height: 2px;
+    background: var(--color-principal);
+  }
+  .linea-hamburguesa:nth-child(2) {
+    width: 30px;
+  }
+  .linea-hamburguesa:nth-child(3) {
+    width: 25px;
+  }
+}
+//FIN SECCION HEADER
+
+/*********INICIO SECCION CONTENIDO PRINCIPAL*******/
+.contenido-principal {
+  position: relative;
+  top: 500px;
+  background: var(--color-background);
+  padding: 20px 25px 0px;
+  .sobre-mi {
+    height: 350px;
+  }
+  .titulos-secciones {
+    width: 100%;
+    height: 40px;
+    @include flexbox(row, center, center);
+  }
+  .indice {
+    display: block;
+    color: var(--color-principal);
+    font-size: 18px;
+    height: 100%;
+    @include flexbox(row, center, center);
+    width: 12%;
+    font-family: "SF Mono";
+  }
+  .titulos-secundarios {
+    height: 100%;
+    @include flexbox(row, flex-start, center);
+    padding-top: 7px;
+    padding-left: 5px;
+  }
+  .linea {
+    width: 42%;
+    height: 1px;
+    background: #3c4357;
+    margin-left: auto;
+  }
+}
+
+/*INICIO SECCION PROCESO*/
+
+.proceso {
+  .lista-proceso {
+    width: 100%;
+    list-style-type: none;
+  }
+  .items-proceso {
+    @include flexbox(row, center, flex-start);
+  }
+  .textos-secundarios {
+    width: 95%;
+  }
+  .fa-caret-right {
+    color: var(--color-principal);
+    width: 5%;
+    margin-top: 20px;
+  }
+}
+
+/*INICIO SECCION PROYECTOS*/
+
+.proyectos {
+  width: 100%;
+}
+.carta-proyecto {
+  width: 100%;
+  height: 350px;
+  position: relative;
+  margin: 25px 0;
+  .titulos-secundarios {
+    padding: 10px 25px 0;
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    top: 0;
+    color: var(--color-titulos-proyectos);
+    @include flexbox(row, flex-start, center);
+    z-index: 1;
+  }
+  .textos-secundarios {
+    margin: 0;
+    position: absolute;
+    z-index: 2;
+    top: 90px;
+    padding: 0px 20px;
+    line-height: 1.5;
+  }
+  .contenedor-imagen {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  .contenedor-botones {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 20%;
+    @include flexbox(row, space-evenly, center);
+  }
+}
+.contenedor-imagen:after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: #002e2ce7;
+  z-index: 0;
+}
