@@ -33,6 +33,9 @@ body {
   background: var(--color-background);
   -webkit-font-smoothing: antialiased;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 img {
@@ -46,18 +49,21 @@ img {
   color: var(--color-titulos);
   font-family: "Calibre";
   text-transform: capitalize;
-  font-size: 40px;
+}
+.titulos-principales {
+  font-size: clamp(40px, 7vw, 5rem);
 }
 .titulos-secundarios {
-  font-size: 24px;
+  font-size: clamp(24px, 3vw, 3.5rem);
 }
 
 .textos-secundarios {
   color: var(--color-subtitulos);
   font-family: "Calibre Medium";
   font-size: 18px;
+  font-size: clamp(18px, 2vw, 1.3rem);
   line-height: 1.4;
-  margin: 20px 0 30px;
+  margin: 30px 0 40px;
 }
 
 .mini-texto,
@@ -67,6 +73,7 @@ img {
 }
 .mini-texto {
   font-size: 13px;
+  font-size: clamp(13px, 2vw, 16px);
   margin-bottom: 15px;
   transform: scale(1, 1.1);
 }
@@ -78,6 +85,8 @@ img {
   border: 1px solid var(--color-principal);
   border-radius: 2px;
   text-transform: capitalize;
+  width: 45vw;
+  max-width: 170px;
 }
 .btn-proyectos {
   padding: 5px;
@@ -102,16 +111,53 @@ img {
 .header-fixed {
   position: fixed;
   width: 100%;
-  height: 500px;
-  padding: 20px 25px 0px;
-  margin-top: 0;
-  .navegacion-principal {
-    width: 100%;
-    height: 50px;
-    position: relative;
-    @include flexbox(row, space-between, center);
-    margin-bottom: 70px;
+  max-width: 1200px;
+  height: 700px;
+  padding: 140px 25px 0px;
+  .subtitulo {
+    color: var(--color-subtitulos);
+    font-size: clamp(36px, 5vw, 3.5rem);
   }
+  .textos-secundarios {
+    max-width: 350px;
+  }
+}
+
+//MEDIA QUERYS HEADER
+
+@media (min-width: 450px) {
+  .header-fixed {
+    padding: 140px 50px 0px;
+  }
+}
+
+@media (min-width: 768px) {
+  .header-fixed {
+    padding: 140px 100px 0px;
+  }
+}
+@media (min-width: 1440px) {
+  .header-fixed {
+    padding: 280px 100px 0;
+  }
+}
+@media (min-width: 2200px) {
+  .header-fixed {
+    padding: 560px 100px 0;
+  }
+}
+
+/***INICIO NAVEGACION PRINCIPAL*/
+.navegacion-principal {
+  width: 100%;
+  @include flexbox(row, space-between, center);
+  position: fixed;
+  top: 0px;
+  right: 0;
+  padding: 20px 25px 0px;
+  z-index: 99999999;
+  background: var(--color-background);
+
   .logo {
     width: 50px;
     height: 50px;
@@ -138,8 +184,9 @@ img {
 
 /*********INICIO SECCION CONTENIDO PRINCIPAL*******/
 .contenido-principal {
+  max-width: 1200px;
   position: relative;
-  top: 500px;
+  top: 700px;
   background: var(--color-background);
   padding: 20px 25px 0px;
   .sobre-mi {
@@ -155,8 +202,7 @@ img {
     color: var(--color-principal);
     font-size: 18px;
     height: 100%;
-    @include flexbox(row, center, center);
-    width: 12%;
+    @include flexbox(row, flex-start, center);
     font-family: "SF Mono";
   }
   .titulos-secundarios {
@@ -170,6 +216,30 @@ img {
     height: 1px;
     background: #3c4357;
     margin-left: auto;
+  }
+}
+
+//MEDIA QUERYS SECCION PRINCIPAL
+@media (min-width: 450px) {
+  .contenido-principal {
+    padding: 20px 50px 0px;
+    .indice {
+      min-width: 50px;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .contenido-principal {
+    padding: 20px 100px 0px;
+    .linea {
+      width: 70%;
+    }
+  }
+}
+@media (min-width: 1440px) {
+  .contenido-principal {
+    top: 90vh;
   }
 }
 
