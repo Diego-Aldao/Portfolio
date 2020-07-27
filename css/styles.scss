@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 /*COLORES Y TIPOGRAFIAS*/
@@ -29,6 +30,14 @@
   font-weight: 300;
 }
 
+/******MIXINS***********/
+@mixin flexbox($direction, $justify, $align) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
 /****GLOBALES*****/
 body {
   overflow-x: hidden;
@@ -46,6 +55,12 @@ img {
   object-fit: cover;
 }
 
+a {
+  color: inherit;
+  text-decoration: inherit;
+  display: block;
+}
+
 .titulos-principales,
 .titulos-secundarios {
   color: var(--color-titulos);
@@ -56,7 +71,7 @@ img {
   font-size: clamp(40px, 7vw, 5rem);
 }
 .titulos-secundarios {
-  font-size: clamp(24px, 3vw, 2.4rem);
+  font-size: clamp(24px, 2.2vw, 2rem);
 }
 
 .textos-secundarios {
@@ -79,6 +94,14 @@ img {
   margin-bottom: 15px;
   transform: scale(1, 1.1);
 }
+.indice {
+  display: block;
+  color: var(--color-principal);
+  font-size: 18px;
+  height: 100%;
+  @include flexbox(row, flex-start, center);
+  font-family: "SF Mono";
+}
 
 /*******BOTONES*******/
 .btn {
@@ -90,6 +113,10 @@ img {
   width: 45vw;
   max-width: 170px;
 }
+.btn:focus,
+.btn-proyectos:focus {
+  outline: 1px solid var(--color-principal);
+}
 .btn-proyectos {
   padding: 5px;
   border: none;
@@ -100,22 +127,12 @@ img {
   }
 }
 
-/******MIXINS***********/
-@mixin flexbox($direction, $justify, $align) {
-  display: flex;
-  flex-direction: $direction;
-  justify-content: $justify;
-  align-items: $align;
-}
-
 /********INICIO HEADER-PRINCIPAL*/
 .header-fixed {
   position: fixed;
   width: 100%;
   max-width: 1200px;
-  height: 700px;
   padding: 140px 25px 0px;
-  overflow: hidden;
   .mt-header,
   .tp-header,
   .sub-header,
@@ -171,13 +188,14 @@ img {
   .hamburguesa {
     width: 50px;
     height: 50px;
-    @include flexbox(column, space-evenly, flex-end);
+    @include flexbox(column, center, flex-end);
     padding: 6px 0px 6px 8px;
   }
   .linea-hamburguesa {
     width: 35px;
     height: 2px;
     background: var(--color-principal);
+    margin: 5px 0px;
   }
   .linea-hamburguesa:nth-child(2) {
     width: 30px;
@@ -186,6 +204,40 @@ img {
     width: 25px;
   }
 }
+.navegacion-desktop {
+  width: 650px;
+  padding: 0 20px;
+  opacity: 0;
+  display: none;
+  .btn {
+    width: 100px;
+    padding: 12px 7px;
+    font-size: 0.7rem;
+  }
+  a {
+    @include flexbox(row, center, center);
+  }
+  .titulos-secundarios {
+    font-size: 0.8rem;
+    font-family: "SF Mono";
+  }
+  .indice {
+    font-size: 0.8rem;
+    margin-right: 5px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .navegacion-principal {
+    .hamburguesa {
+      display: none;
+    }
+    .navegacion-desktop {
+      @include flexbox(row, space-between, center);
+    }
+  }
+}
+
 //FIN SECCION HEADER
 
 /*********INICIO SECCION CONTENIDO PRINCIPAL*******/
@@ -200,14 +252,6 @@ img {
     height: 40px;
     @include flexbox(row, center, center);
   }
-  .indice {
-    display: block;
-    color: var(--color-principal);
-    font-size: 18px;
-    height: 100%;
-    @include flexbox(row, flex-start, center);
-    font-family: "SF Mono";
-  }
   .titulos-secundarios {
     height: 100%;
     @include flexbox(row, flex-start, center);
@@ -215,7 +259,7 @@ img {
     padding-left: 5px;
   }
   .linea {
-    width: 42%;
+    width: 35%;
     height: 1px;
     background: #3c4357;
     margin-left: auto;
@@ -246,6 +290,9 @@ img {
   .proyectos {
     grid-column: 2 / 3;
     grid-row: 2 / 4;
+  }
+  .contacto {
+    grid-column: 1 / 3;
   }
 }
 @media (min-width: 1024px) {
@@ -283,17 +330,18 @@ img {
 /*INICIO SECCION PROYECTOS*/
 .proyectos {
   @include flexbox(column, center, center);
+  overflow: hidden;
 }
 
 .carta-proyecto {
+  position: relative;
   width: 100%;
   max-width: 350px;
   height: 450px;
-  position: relative;
   margin: 55px 0;
+  transition: all 0.5s ease-in-out;
   .titulos-secundarios {
     margin: 30px 20px 0;
-    padding: 0;
     height: 60px;
     position: absolute;
     top: 10px;
@@ -317,17 +365,51 @@ img {
     width: 100%;
     height: 100%;
     position: relative;
+    transition: all 0.5s ease-in-out;
   }
-
+  .imagen-01 {
+    background: url("/imagenes/image\ \(18\).png") center / cover no-repeat;
+  }
+  .imagen-02 {
+    background: url("/imagenes/rogue-movile.png") center / cover no-repeat;
+  }
+  .imagen-03 {
+    background: url("/imagenes/image\ \(15\).png") center / cover no-repeat;
+  }
+  @media (min-width: 768px) {
+    .imagen-01 {
+      background: url("/imagenes/image.png") center / cover no-repeat;
+    }
+    .imagen-02 {
+      background: url("/imagenes/rogue-desktop.png") center / cover no-repeat;
+    }
+    .imagen-03 {
+      background: url("/imagenes/image\ \(12\).png") center / cover no-repeat;
+    }
+  }
   .contenedor-botones {
     position: absolute;
     bottom: 0;
-    width: 100%;
+    width: 120px;
     height: 70px;
-    @include flexbox(row, space-evenly, center);
+    @include flexbox(row, flex-start, center);
+    transition: all 0.5s ease-in-out;
   }
-  .btn-proyectos {
-    width: 50px;
+  a {
+    @include flexbox(row, space-evenly, center);
+    width: 100%;
+    height: 100%;
+  }
+  .btn-proyectos:hover {
+    color: var(--color-principal);
+  }
+  .texto-btn-proyectos {
+    font-size: 0.7rem;
+    height: 100%;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.5s ease-in-out;
+    transition: opacity 0.5s ease-in-out 0.5s;
   }
 }
 .contenedor-imagen:after {
@@ -339,6 +421,32 @@ img {
   top: 0;
   background: #002e2cde;
   z-index: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.carta-proyecto:hover {
+  .contenedor-imagen::after {
+    background: #002e2ccb;
+  }
+  .contenedor-botones {
+    width: 100%;
+    background: var(--color-background);
+  }
+  .texto-btn-proyectos {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+@media (min-width: 1224px) {
+  .carta-proyecto:hover {
+    .contenedor-imagen:after {
+      background: rgba(0, 0, 0, 0);
+    }
+    .contenedor-botones {
+      width: 80%;
+    }
+  }
 }
 
 //MEDIA QUERYS PROYECTOS
@@ -348,17 +456,11 @@ img {
     max-width: 500px;
     height: 350px;
     align-self: center;
-    .contenedor-botones {
-      @include flexbox(row, flex-start, center);
-    }
     .textos-secundarios {
       max-width: 400px;
       font-size: 1.1rem;
       background-color: #172a45;
       margin-left: 20px;
-    }
-    .contenedor-botones {
-      padding-left: 10px;
     }
   }
 }
@@ -383,5 +485,84 @@ img {
   }
   .carta-proyecto:nth-child(3) {
     align-self: flex-start;
+  }
+}
+
+/*****INICIO MENU DESPLEGABLE*/
+
+.menu-desplegable {
+  position: fixed;
+  width: 100%;
+  max-width: 500px;
+  right: -100%;
+  height: 100%;
+  background: var(--color-bg-descripcion);
+  z-index: 9999999999;
+  display: flex;
+  flex-direction: column;
+  .btn-cerrar {
+    width: 50px;
+    height: 50px;
+    align-self: flex-end;
+    @include flexbox(column, center, center);
+  }
+  .linea-cerrar {
+    position: absolute;
+    width: 40px;
+    height: 2px;
+    background: var(--color-principal);
+    transform: rotate(135deg);
+  }
+  .linea-cerrar:nth-child(2) {
+    transform: rotate(-135deg);
+  }
+  .contenido-desplegable {
+    width: 100%;
+    height: calc(100% - 50px);
+    padding: 70px 0 0;
+    @include flexbox(column, flex-start, center);
+  }
+  .titulos-secundarios {
+    width: 150px;
+    @include flexbox(row, flex-start, center);
+    margin: 25px 0;
+  }
+  .indice {
+    padding-bottom: 7px;
+    margin-right: 5px;
+  }
+  .btn {
+    margin-top: 35px;
+    width: 170px;
+  }
+}
+
+@media (min-width: 768px) {
+  .menu-desplegable {
+    display: none;
+  }
+}
+
+//INICIO SECCION CONTACTO
+
+.contacto {
+  padding: 50px 0px;
+  @include flexbox(column, flex-start, center);
+  height: 500px;
+  .titulos-secciones {
+    margin-bottom: 50px;
+    @include flexbox(row, center, center);
+  }
+  .titulos-principales {
+    text-align: center;
+    font-size: clamp(36px, 5vw, 3.5rem);
+  }
+  .textos-secundarios {
+    text-align: justify;
+    max-width: 500px;
+  }
+  .linea {
+    width: 25%;
+    margin: 0 auto;
   }
 }

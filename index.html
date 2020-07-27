@@ -20,6 +20,23 @@
         <span class="linea-hamburguesa"></span>
         <span class="linea-hamburguesa"></span>
       </div>
+      <div class="navegacion-desktop">
+        <h3 class="titulos-secundarios">
+          <a href="#sobre-mi"> <span class="indice">01.</span>sobre mi</a>
+        </h3>
+        <h3 class="titulos-secundarios">
+          <a href="#proceso"> <span class="indice">02.</span>el proceso</a>
+        </h3>
+        <h3 class="titulos-secundarios">
+          <a href="#proyectos"> <span class="indice">03.</span>proyectos</a>
+        </h3>
+        <h3 class="titulos-secundarios">
+          <a href="#contacto"> <span class="indice">04.</span>contacto</a>
+        </h3>
+        <button class="btn btn-curriculum">
+          <a href="/Diego Aldao San Martín.pdf" target="_blank">curriculum</a>
+        </button>
+      </div>
     </nav>
     <header class="header-fixed">
       <p class="mini-texto mt-header">Hola, mi nombre es</p>
@@ -31,13 +48,15 @@
         Soy un programador Front-End Jr. en busca de mi primera experiencia
         laboral.
       </p>
-      <button class="btn btn-header">contactarme</button>
+      <button class="btn btn-header">
+        <a href="#">contactarme</a>
+      </button>
     </header>
     <!--FIN HEADER-->
     <!--INICIO CONTENIDO PRINCIPAL-->
     <main class="contenido-principal">
       <!--INICIO SECCION SOBRE MI-->
-      <section class="sobre-mi">
+      <section id="sobre-mi" class="sobre-mi">
         <header class="titulos-secciones">
           <span class="indice">01.</span>
           <h3 class="titulos-secundarios">sobre mi</h3>
@@ -52,7 +71,7 @@
       </section>
       <!--FIN SECCION SOBRE MI-->
       <!--INICIO SECCION PROCESO-->
-      <section class="proceso">
+      <section id="proceso" class="proceso">
         <header class="titulos-secciones">
           <span class="indice">02.</span>
           <h3 class="titulos-secundarios">el proceso</h3>
@@ -88,13 +107,13 @@
       </section>
       <!--FIN SECCION PROCESO-->
       <!--INICIO SECCION PROYECTOS-->
-      <section class="proyectos">
+      <section id="proyectos" class="proyectos">
         <header class="titulos-secciones">
           <span class="indice">03.</span>
           <h3 class="titulos-secundarios">proyectos</h3>
           <span class="linea"></span>
         </header>
-        <div class="carta-proyecto">
+        <div class="carta-proyecto proyecto-01">
           <h3 class="titulos-secundarios primer-sub">
             <span class="mini-texto">landing-page</span> Cypher
           </h3>
@@ -103,15 +122,23 @@
             necessitatibus repellendus illum. Recusandae, earum velit? Ratione
             dolorem ullam doloremque beatae!
           </p>
-          <div class="contenedor-imagen">
-            <img src="/imagenes/image (18).png" alt="" />
+          <div class="contenedor-imagen imagen-01">
+            <a href=""></a>
           </div>
           <div class="contenedor-botones primer-sub">
             <button class="btn btn-proyectos">
-              <i class="fab fa-github"></i>
+              <a
+                href="https://github.com/Diego-Aldao/Cypher-Fotografia"
+                target="_blank"
+                ><i class="fab fa-github"></i>
+                <span class="texto-btn-proyectos">ver código</span>
+              </a>
             </button>
             <button class="btn btn-proyectos">
-              <i class="fas fa-external-link-alt"></i>
+              <a href="https://cyphercs.netlify.app/" target="_blank">
+                <i class="fas fa-external-link-alt"></i>
+                <span class="texto-btn-proyectos">ver sitio</span>
+              </a>
             </button>
           </div>
         </div>
@@ -124,15 +151,22 @@
             necessitatibus repellendus illum. Recusandae, earum velit? Ratione
             dolorem ullam doloremque beatae!
           </p>
-          <div class="contenedor-imagen">
-            <img src="imagenes/rogue-movile.png" alt="" />
-          </div>
+          <div class="contenedor-imagen imagen-02"></div>
           <div class="contenedor-botones segundo-sub">
             <button class="btn btn-proyectos">
-              <i class="fab fa-github"></i>
+              <a
+                href="https://github.com/Diego-Aldao/Rogue-Ecommerce"
+                target="_blank"
+              >
+                <span class="texto-btn-proyectos">ver código</span>
+                <i class="fab fa-github"></i
+              ></a>
             </button>
             <button class="btn btn-proyectos">
-              <i class="fas fa-external-link-alt"></i>
+              <a href="https://ecommercemza.netlify.app/" target="_blank">
+                <span class="texto-btn-proyectos">ver sitio</span>
+                <i class="fas fa-external-link-alt"></i>
+              </a>
             </button>
           </div>
         </div>
@@ -145,25 +179,67 @@
             necessitatibus repellendus illum. Recusandae, earum velit? Ratione
             dolorem ullam doloremque beatae!
           </p>
-          <div class="contenedor-imagen">
-            <img src="./imagenes/image (15).png" alt="" />
-          </div>
+          <div class="contenedor-imagen imagen-03"></div>
           <div class="contenedor-botones primer-sub">
             <button class="btn btn-proyectos">
-              <i class="fab fa-github"></i>
+              <a
+                href="https://github.com/Diego-Aldao/Skylink-Blog"
+                target="_blank"
+              >
+                <i class="fab fa-github"></i
+                ><span class="texto-btn-proyectos">ver código</span>
+              </a>
             </button>
             <button class="btn btn-proyectos">
-              <i class="fas fa-external-link-alt"></i>
+              <a href="https://skylink.netlify.app/" target="_blank">
+                <i class="fas fa-external-link-alt"></i
+                ><span class="texto-btn-proyectos">ver sitio</span>
+              </a>
             </button>
           </div>
         </div>
       </section>
       <!--FIN SECCION PERSONAL-->
-      <footer>
-        <p class="textos-secundarios">&copy; todos los derechos reservados</p>
-      </footer>
+      <section id="contacto" class="contacto">
+        <header class="titulos-secciones">
+          <span class="linea"></span>
+          <span class="indice">04.</span>
+          <h3 class="titulos-secundarios">contacto</h3>
+          <span class="linea"></span>
+        </header>
+        <h1 class="titulos-principales">Trabajemos Juntos</h1>
+        <p class="textos-secundarios">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut soluta
+          rerum dicta incidunt eaque officia saepe aliquam architecto quo
+          beatae!
+        </p>
+        <button class="btn">contactarme</button>
+      </section>
     </main>
+    <!--DESPLEGABLES-->
+    <div class="menu-desplegable">
+      <div class="btn-cerrar">
+        <span class="linea-cerrar"></span
+        ><span class="linea-cerrar linea-02"></span>
+      </div>
+      <div class="contenido-desplegable">
+        <h3 class="titulos-secundarios">
+          <span class="indice">01.</span>sobre mi
+        </h3>
+        <h3 class="titulos-secundarios">
+          <span class="indice">02.</span>el proceso
+        </h3>
+        <h3 class="titulos-secundarios">
+          <span class="indice">03.</span>proyectos
+        </h3>
+        <h3 class="titulos-secundarios">
+          <span class="indice">04.</span>contacto
+        </h3>
+        <button class="btn">Curriculum</button>
+      </div>
+    </div>
     <!--GSAP-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/CSSRulePlugin.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/gsap.min.js"></script>
     <script src="./js/app.js"></script>
   </body>
