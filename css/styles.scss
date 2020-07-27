@@ -368,23 +368,23 @@ a {
     transition: all 0.5s ease-in-out;
   }
   .imagen-01 {
-    background: url("/imagenes/image\ \(18\).png") center / cover no-repeat;
+    background: url("/imagenes/cypher-movil.webp") center / cover no-repeat;
   }
   .imagen-02 {
-    background: url("/imagenes/rogue-movile.png") center / cover no-repeat;
+    background: url("/imagenes/rogue-movile.webp") center / cover no-repeat;
   }
   .imagen-03 {
-    background: url("/imagenes/image\ \(15\).png") center / cover no-repeat;
+    background: url("/imagenes/skylink-movile.webp") center / cover no-repeat;
   }
   @media (min-width: 768px) {
     .imagen-01 {
-      background: url("/imagenes/image.png") center / cover no-repeat;
+      background: url("/imagenes/cypher-desktop.webp") center / cover no-repeat;
     }
     .imagen-02 {
-      background: url("/imagenes/rogue-desktop.png") center / cover no-repeat;
+      background: url("/imagenes/rogue-desktop.webp") center / cover no-repeat;
     }
     .imagen-03 {
-      background: url("/imagenes/image\ \(12\).png") center / cover no-repeat;
+      background: url("/imagenes/skylink-desktop.webp") center / cover no-repeat;
     }
   }
   .contenedor-botones {
@@ -394,11 +394,15 @@ a {
     height: 70px;
     @include flexbox(row, flex-start, center);
     transition: all 0.5s ease-in-out;
+    padding-left: 20px;
   }
   a {
     @include flexbox(row, space-evenly, center);
     width: 100%;
     height: 100%;
+  }
+  .proyecto-02-a {
+    flex-direction: row-reverse;
   }
   .btn-proyectos:hover {
     color: var(--color-principal);
@@ -443,6 +447,7 @@ a {
     .contenedor-imagen:after {
       background: rgba(0, 0, 0, 0);
     }
+
     .contenedor-botones {
       width: 80%;
     }
@@ -470,6 +475,9 @@ a {
     align-self: flex-end;
     .titulos-secundarios {
       padding-left: 0;
+    }
+    .proyecto-02-a {
+      flex-direction: row;
     }
     .primer-sub {
       left: -110px;
@@ -522,9 +530,15 @@ a {
     padding: 70px 0 0;
     @include flexbox(column, flex-start, center);
   }
+  a {
+    @include flexbox(row, flex-start, center);
+  }
+  a:last-child {
+    @include flexbox(row, center, center);
+  }
   .titulos-secundarios {
     width: 150px;
-    @include flexbox(row, flex-start, center);
+
     margin: 25px 0;
   }
   .indice {
@@ -537,7 +551,7 @@ a {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .menu-desplegable {
     display: none;
   }

@@ -539,26 +539,26 @@ a {
 }
 
 .carta-proyecto .imagen-01 {
-  background: url("/imagenes/image (18).png") center/cover no-repeat;
+  background: url("/imagenes/cypher-movil.webp") center/cover no-repeat;
 }
 
 .carta-proyecto .imagen-02 {
-  background: url("/imagenes/rogue-movile.png") center/cover no-repeat;
+  background: url("/imagenes/rogue-movile.webp") center/cover no-repeat;
 }
 
 .carta-proyecto .imagen-03 {
-  background: url("/imagenes/image (15).png") center/cover no-repeat;
+  background: url("/imagenes/skylink-movile.webp") center/cover no-repeat;
 }
 
 @media (min-width: 768px) {
   .carta-proyecto .imagen-01 {
-    background: url("/imagenes/image.png") center/cover no-repeat;
+    background: url("/imagenes/cypher-desktop.webp") center/cover no-repeat;
   }
   .carta-proyecto .imagen-02 {
-    background: url("/imagenes/rogue-desktop.png") center/cover no-repeat;
+    background: url("/imagenes/rogue-desktop.webp") center/cover no-repeat;
   }
   .carta-proyecto .imagen-03 {
-    background: url("/imagenes/image (12).png") center/cover no-repeat;
+    background: url("/imagenes/skylink-desktop.webp") center/cover no-repeat;
   }
 }
 
@@ -582,6 +582,7 @@ a {
           align-items: center;
   -webkit-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
+  padding-left: 20px;
 }
 
 .carta-proyecto a {
@@ -600,6 +601,13 @@ a {
           align-items: center;
   width: 100%;
   height: 100%;
+}
+
+.carta-proyecto .proyecto-02-a {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
 }
 
 .carta-proyecto .btn-proyectos:hover {
@@ -676,6 +684,12 @@ a {
   }
   .carta-proyecto .titulos-secundarios {
     padding-left: 0;
+  }
+  .carta-proyecto .proyecto-02-a {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
   }
   .carta-proyecto .primer-sub {
     left: -110px;
@@ -767,8 +781,7 @@ a {
           align-items: center;
 }
 
-.menu-desplegable .titulos-secundarios {
-  width: 150px;
+.menu-desplegable a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -782,6 +795,26 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.menu-desplegable a:last-child {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.menu-desplegable .titulos-secundarios {
+  width: 150px;
   margin: 25px 0;
 }
 
@@ -795,7 +828,7 @@ a {
   width: 170px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .menu-desplegable {
     display: none;
   }
