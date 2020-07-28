@@ -132,7 +132,11 @@ a {
   position: fixed;
   width: 100%;
   max-width: 1200px;
-  padding: 180px 25px 0px;
+  @include flexbox(column, center, flex-start);
+  top: 0;
+  min-height: 400px;
+  height: 100vh;
+  padding: 0 25px;
   .mt-header,
   .tp-header,
   .sub-header,
@@ -150,27 +154,17 @@ a {
 }
 
 //MEDIA QUERYS HEADER
+
 @media (min-width: 450px) {
   .header-fixed {
-    padding: 180px 50px 0px;
+    padding: 0 50px;
   }
 }
 @media (min-width: 1024px) {
   .header-fixed {
-    padding: 200px 100px 0px;
+    padding: 0 100px;
   }
 }
-@media (min-width: 1440px) {
-  .header-fixed {
-    padding: 280px 100px 0px;
-  }
-}
-@media (min-width: 2200px) {
-  .header-fixed {
-    padding: 560px 100px 0px;
-  }
-}
-
 /***INICIO NAVEGACION PRINCIPAL*/
 .navegacion-principal {
   position: fixed;
@@ -314,16 +308,17 @@ a {
   }
   .textos-secundarios {
     margin-bottom: 0px;
+    text-align: justify;
   }
 
-  .lista-proceso {
+  .lista-proceso-tecnologias {
     list-style-type: none;
     @include flexbox(row, flex-start, center);
     flex-wrap: wrap;
     max-width: 500px;
     margin: 15px 0px 30px;
   }
-  .items-proceso {
+  .items-proceso-tecnologias {
     @include flexbox(row, center, flex-start);
     font-size: 1rem;
     width: 100%;
@@ -345,7 +340,7 @@ a {
 
 @media (min-width: 450px) {
   .sobre-mi {
-    .items-proceso {
+    .items-proceso-tecnologias {
       width: 50%;
     }
   }
@@ -353,11 +348,11 @@ a {
 
 /*INICIO SECCION PROCESO*/
 .proceso {
-  .lista-proceso {
+  .lista-proceso-tecnologias {
     width: 100%;
     list-style-type: none;
   }
-  .items-proceso {
+  .items-proceso-tecnologias {
     @include flexbox(row, center, flex-start);
     max-width: 450px;
   }

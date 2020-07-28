@@ -12,7 +12,7 @@
     <title>Document</title>
   </head>
   <body>
-    <!--INICIO HEADER-->
+    <!-------INICIO NAVEGACION PRINCIPAL-------->
     <nav class="navegacion-principal">
       <div class="logo"></div>
       <div class="hamburguesa">
@@ -20,6 +20,7 @@
         <span class="linea-hamburguesa"></span>
         <span class="linea-hamburguesa"></span>
       </div>
+      <!--INICIO NAVEGACION DESKTOP-->
       <div class="navegacion-desktop">
         <h3 class="titulos-secundarios">
           <a href="#sobre-mi"> <span class="indice">01.</span>sobre mi</a>
@@ -37,7 +38,10 @@
           <a href="/Diego Aldao San Martín.pdf" target="_blank">curriculum</a>
         </button>
       </div>
+      <!--FIN NAVEGACION DESKTOP-->
     </nav>
+    <!--FIN NAVEGACION PRINCIPAL-->
+    <!-----------------INICIO HEADER------------>
     <header class="header-fixed">
       <p class="mini-texto mt-header">Hola, mi nombre es</p>
       <h1 class="titulos-principales tp-header">diego aldao.</h1>
@@ -53,9 +57,9 @@
       </button>
     </header>
     <!--FIN HEADER-->
-    <!--INICIO CONTENIDO PRINCIPAL-->
+    <!--------INICIO CONTENIDO PRINCIPAL-------->
     <main class="contenido-principal">
-      <!--INICIO SECCION SOBRE MI-->
+      <!-------INICIO SECCION SOBRE MI---------->
       <section id="sobre-mi" class="sobre-mi">
         <header class="titulos-secciones">
           <span class="indice">01.</span>
@@ -66,38 +70,38 @@
           Hola! soy Diego, un programador Front-End Jr. viviendo en Mendoza,
           Arg. Encontré mi pasión por el mundo de la programacion web a
           principios del 2020, y desde entonces no he parado de aprender y
-          construir cosas. En este momento me encuentro aprendiendo React y
-          Node.js.
+          construir cosas. En este momento me encuentro aprendiendo
+          <span class="mini-texto">React y Node.js.</span>
         </p>
         <p class="textos-secundarios">
           Estas son las tecnologías y herramientas con las que he trabajado
           actualmente:
         </p>
-        <ul class="lista-proceso">
-          <li class="items-proceso">
+        <ul class="lista-proceso-tecnologias">
+          <li class="items-proceso-tecnologias">
             <i class="fas fa-caret-right"></i>
-            <p class="textos-secundarios">HTML</p>
+            <p class="textos-secundarios">HTML5</p>
           </li>
-          <li class="items-proceso">
+          <li class="items-proceso-tecnologias">
             <i class="fas fa-caret-right"></i>
-            <p class="textos-secundarios">CSS (Sass/Scss)</p>
+            <p class="textos-secundarios">CSS3 (Sass/Scss)</p>
           </li>
-          <li class="items-proceso">
+          <li class="items-proceso-tecnologias">
             <i class="fas fa-caret-right"></i>
             <p class="textos-secundarios">Javascript (ES6+)</p>
           </li>
-          <li class="items-proceso">
+          <li class="items-proceso-tecnologias">
             <i class="fas fa-caret-right"></i>
             <p class="textos-secundarios">Git</p>
           </li>
-          <li class="items-proceso">
+          <li class="items-proceso-tecnologias">
             <i class="fas fa-caret-right"></i>
             <p class="textos-secundarios">Netlify</p>
           </li>
         </ul>
       </section>
       <!--FIN SECCION SOBRE MI-->
-      <!--INICIO SECCION PROCESO-->
+      <!---------INICIO SECCION PROCESO--------->
       <section id="proceso" class="proceso">
         <header class="titulos-secciones">
           <span class="indice">02.</span>
@@ -108,15 +112,15 @@
           En todos los proyectos, el proceso para la creación del mismo
           involucraba:
         </p>
-        <ul class="lista-proceso">
-          <li class="items-proceso">
+        <ul class="lista-proceso-tecnologias">
+          <li class="items-proceso-tecnologias">
             <i class="fas fa-caret-right"></i>
             <p class="textos-secundarios">
               Conversión semántica de PSD a HTML5 con gran atención a los
               detalles.
             </p>
           </li>
-          <li class="items-proceso">
+          <li class="items-proceso-tecnologias">
             <i class="fas fa-caret-right"></i>
             <p class="textos-secundarios">
               Aplicación de los 3 componentes principales del Responsive Design,
@@ -127,14 +131,14 @@
               (imagenes, videos, etc)
             </p>
           </li>
-          <li class="items-proceso">
+          <li class="items-proceso-tecnologias">
             <i class="fas fa-caret-right"></i>
             <p class="textos-secundarios">
               Prueba de código en varios navegadores para garantizar la
               compatibilidad cross-browser.
             </p>
           </li>
-          <li class="items-proceso">
+          <li class="items-proceso-tecnologias">
             <i class="fas fa-caret-right"></i>
             <p class="textos-secundarios">
               Uso y aprovechamiento de plugins populares para componentes
@@ -144,14 +148,15 @@
         </ul>
       </section>
       <!--FIN SECCION PROCESO-->
-      <!--INICIO SECCION PROYECTOS-->
+      <!--------INICIO SECCION PROYECTOS-------->
       <section id="proyectos" class="proyectos">
         <header class="titulos-secciones">
           <span class="indice">03.</span>
           <h3 class="titulos-secundarios">proyectos</h3>
           <span class="linea"></span>
         </header>
-        <div class="carta-proyecto proyecto-01">
+        <!---------INICIO PROYECTO 01---------->
+        <div class="carta-proyecto">
           <h3 class="titulos-secundarios primer-sub">
             <span class="mini-texto">landing-page</span> Cypher
           </h3>
@@ -162,7 +167,12 @@
               >HTML5 CSS3(Scss) JavaScript</span
             >
           </p>
-          <a class="contenedor-imagen imagen-01" href="#"> </a>
+          <a
+            class="contenedor-imagen imagen-01"
+            href="https://cyphercs.netlify.app/"
+            target="_blank"
+          >
+          </a>
           <div class="contenedor-botones primer-sub">
             <button class="btn btn-proyectos">
               <a
@@ -180,6 +190,7 @@
             </button>
           </div>
         </div>
+        <!---------INICIO PROYECTO 02---------->
         <div class="carta-proyecto">
           <h3 class="titulos-secundarios segundo-sub">
             <span class="mini-texto">e-commerce</span> Rogue
@@ -191,7 +202,12 @@
               >HTML5 CSS3(Scss) JavaScript</span
             >
           </p>
-          <a class="contenedor-imagen imagen-02" href="#"> </a>
+          <a
+            class="contenedor-imagen imagen-02"
+            href="https://ecommercemza.netlify.app/"
+            target="_blank"
+          >
+          </a>
           <div class="contenedor-botones segundo-sub">
             <button class="btn btn-proyectos">
               <a
@@ -215,6 +231,7 @@
             </button>
           </div>
         </div>
+        <!---------INICIO PROYECTO 03---------->
         <div class="carta-proyecto">
           <h3 class="titulos-secundarios primer-sub">
             <span class="mini-texto">blog</span> Skylink
@@ -227,7 +244,12 @@
             >
           </p>
 
-          <a class="contenedor-imagen imagen-03" href="#"> </a>
+          <a
+            class="contenedor-imagen imagen-03"
+            href="https://skylink.netlify.app/"
+            target="_blank"
+          >
+          </a>
           <div class="contenedor-botones primer-sub">
             <button class="btn btn-proyectos">
               <a
@@ -247,7 +269,8 @@
           </div>
         </div>
       </section>
-      <!--FIN SECCION PERSONAL-->
+      <!--FIN SECCION PROYECTOS-->
+      <!--------INICIO SECCION CONTACTO--------->
       <section id="contacto" class="contacto">
         <header class="titulos-secciones">
           <span class="linea"></span>
@@ -263,8 +286,10 @@
         </p>
         <button class="btn">contactarme</button>
       </section>
+      <!--FIN SECCION CONTACTO-->
     </main>
-    <!--DESPLEGABLES-->
+    <!--FIN SECCION PRINCIPAL-->
+    <!-----------DESPLEGABLES / EXTRAS------->
     <div class="menu-desplegable">
       <div class="btn-cerrar">
         <span class="linea-cerrar"></span
@@ -300,6 +325,7 @@
       </p>
       <span class="linea"></span>
     </div>
+    <!--FIN DESPLEGABLES 7 EXTRAS-->
     <!--GSAP-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/CSSRulePlugin.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/gsap.min.js"></script>

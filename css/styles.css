@@ -156,7 +156,23 @@ a {
   position: fixed;
   width: 100%;
   max-width: 1200px;
-  padding: 180px 25px 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  top: 0;
+  min-height: 400px;
+  height: 100vh;
+  padding: 0 25px;
 }
 
 .header-fixed .mt-header,
@@ -178,25 +194,13 @@ a {
 
 @media (min-width: 450px) {
   .header-fixed {
-    padding: 180px 50px 0px;
+    padding: 0 50px;
   }
 }
 
 @media (min-width: 1024px) {
   .header-fixed {
-    padding: 200px 100px 0px;
-  }
-}
-
-@media (min-width: 1440px) {
-  .header-fixed {
-    padding: 280px 100px 0px;
-  }
-}
-
-@media (min-width: 2200px) {
-  .header-fixed {
-    padding: 560px 100px 0px;
+    padding: 0 100px;
   }
 }
 
@@ -438,9 +442,10 @@ a {
 
 .sobre-mi .textos-secundarios {
   margin-bottom: 0px;
+  text-align: justify;
 }
 
-.sobre-mi .lista-proceso {
+.sobre-mi .lista-proceso-tecnologias {
   list-style-type: none;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -461,7 +466,7 @@ a {
   margin: 15px 0px 30px;
 }
 
-.sobre-mi .items-proceso {
+.sobre-mi .items-proceso-tecnologias {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -479,7 +484,7 @@ a {
   width: 100%;
 }
 
-.sobre-mi .items-proceso .textos-secundarios {
+.sobre-mi .items-proceso-tecnologias .textos-secundarios {
   width: 100%;
   margin: 0;
   line-height: 1.5;
@@ -495,18 +500,18 @@ a {
 }
 
 @media (min-width: 450px) {
-  .sobre-mi .items-proceso {
+  .sobre-mi .items-proceso-tecnologias {
     width: 50%;
   }
 }
 
 /*INICIO SECCION PROCESO*/
-.proceso .lista-proceso {
+.proceso .lista-proceso-tecnologias {
   width: 100%;
   list-style-type: none;
 }
 
-.proceso .items-proceso {
+.proceso .items-proceso-tecnologias {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
