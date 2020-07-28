@@ -48,24 +48,7 @@ window.onload = () => {
     opacity: 1,
   });
 
-  //ANIMACIONES GSAP CARTA PROYECTOS
-  /*
-  gsap.from(".contenedor-imagen", {
-    right: "-100%",
-    opacity: 0,
-    width: 0,
-    duration: 0.5,
-    overflow: "hidden",
-  });
-  gsap.from(".primer-sub", {
-    delay: 0.5,
-    opacity: 0,
-    duration: 1,
-  });
-  */
-
   //API INTESERCTION OBSERVER
-
   const pantalla = document.querySelectorAll("section");
   const options = {
     root: null,
@@ -84,31 +67,12 @@ window.onload = () => {
   });
 
   //EVENT LISTENERS NAVEGACION PRINCIPAL
-
   const btnAbrir = document.querySelector(".hamburguesa");
   const btnCerrar = document.querySelector(".btn-cerrar");
   const menuDesplazable = document.querySelector(".menu-desplegable");
+  const linksInternos = document.querySelectorAll(".links-internos");
 
-  btnAbrir.addEventListener("click", () => {
-    gsap.to(".linea-cerrar", {
-      transform: "rotate(135deg)",
-    });
-    gsap.to(".linea-02", {
-      transform: "rotate(-135deg)",
-    });
-    gsap.to(".linea-hamburguesa", {
-      margin: 0,
-      height: "1px",
-    });
-    gsap.to(menuDesplazable, {
-      delay: 0.3,
-      right: 0,
-    });
-  });
-  btnCerrar.addEventListener("click", () => {
-    gsap.to(".linea-cerrar", {
-      transform: "rotate(0deg)",
-    });
+  const cerrarDesplegable = () => {
     gsap.to(menuDesplazable, {
       delay: 0.4,
       right: "-100%",
@@ -117,6 +81,39 @@ window.onload = () => {
       duration: 0.3,
       margin: "5px 0px",
       height: "2px",
+    });
+  };
+
+  const abrirDesplegable = () => {
+    gsap.to(".linea-hamburguesa", {
+      margin: 0,
+      height: "1px",
+    });
+    gsap.to(menuDesplazable, {
+      delay: 0.3,
+      right: 0,
+    });
+  };
+
+  btnAbrir.addEventListener("click", () => {
+    gsap.to(".linea-cerrar", {
+      transform: "rotate(135deg)",
+    });
+    gsap.to(".linea-02", {
+      transform: "rotate(-135deg)",
+    });
+    abrirDesplegable();
+  });
+  btnCerrar.addEventListener("click", () => {
+    gsap.to(".linea-cerrar", {
+      transform: "rotate(0deg)",
+    });
+    cerrarDesplegable();
+  });
+
+  linksInternos.forEach((link) => {
+    link.addEventListener("click", () => {
+      cerrarDesplegable();
     });
   });
 
@@ -138,7 +135,7 @@ window.onload = () => {
       gsap.to(".navegacion-principal", {
         top: "-150px",
       });
-      gsap.to(".btn-curriculum", {
+      gsap.to(".btn-menu-desktop", {
         opacity: 0,
       });
     } else {

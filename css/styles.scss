@@ -68,10 +68,10 @@ a {
   text-transform: capitalize;
 }
 .titulos-principales {
-  font-size: clamp(40px, 7vw, 5rem);
+  font-size: clamp(40px, 6vw, 6rem);
 }
 .titulos-secundarios {
-  font-size: clamp(24px, 2.2vw, 2rem);
+  font-size: clamp(24px, 3vw, 2rem);
 }
 
 .textos-secundarios {
@@ -90,7 +90,7 @@ a {
 }
 .mini-texto {
   font-size: 13px;
-  font-size: clamp(13px, 2vw, 16px);
+  font-size: clamp(13px, 1.2vw, 1.1rem);
   margin-bottom: 15px;
   transform: scale(1, 1.1);
 }
@@ -132,7 +132,7 @@ a {
   position: fixed;
   width: 100%;
   max-width: 1200px;
-  padding: 140px 25px 0px;
+  padding: 180px 25px 0px;
   .mt-header,
   .tp-header,
   .sub-header,
@@ -152,12 +152,12 @@ a {
 //MEDIA QUERYS HEADER
 @media (min-width: 450px) {
   .header-fixed {
-    padding: 140px 50px 0px;
+    padding: 180px 50px 0px;
   }
 }
 @media (min-width: 1024px) {
   .header-fixed {
-    padding: 140px 100px 0px;
+    padding: 200px 100px 0px;
   }
 }
 @media (min-width: 1440px) {
@@ -244,7 +244,7 @@ a {
 .contenido-principal {
   max-width: 1200px;
   position: relative;
-  top: 700px;
+  top: 730px;
   background: var(--color-background);
   padding: 20px 25px 0px;
   .titulos-secciones {
@@ -306,6 +306,51 @@ a {
   }
 }
 
+//INICIO SECCION SOBRE MI
+
+.sobre-mi {
+  .titulos-secciones {
+    margin-bottom: 50px;
+  }
+  .textos-secundarios {
+    margin-bottom: 0px;
+  }
+
+  .lista-proceso {
+    list-style-type: none;
+    @include flexbox(row, flex-start, center);
+    flex-wrap: wrap;
+    max-width: 500px;
+    margin: 15px 0px 30px;
+  }
+  .items-proceso {
+    @include flexbox(row, center, flex-start);
+    font-size: 1rem;
+    width: 100%;
+    .textos-secundarios {
+      width: 100%;
+      margin: 0;
+      line-height: 1.5;
+      margin: 15px 0 10px;
+      font-family: "SF Mono";
+      font-size: 0.8rem;
+    }
+  }
+  .fa-caret-right {
+    color: var(--color-principal);
+    width: 5%;
+    margin-top: 20px;
+  }
+}
+
+@media (min-width: 450px) {
+  .sobre-mi {
+    .items-proceso {
+      width: 50%;
+    }
+  }
+}
+
 /*INICIO SECCION PROCESO*/
 .proceso {
   .lista-proceso {
@@ -323,7 +368,11 @@ a {
   .fa-caret-right {
     color: var(--color-principal);
     width: 5%;
-    margin-top: 20px;
+    margin-top: 22px;
+  }
+  .mini-texto {
+    font-size: 1.2rem;
+    font-family: "Calibre Medium";
   }
 }
 
@@ -360,6 +409,11 @@ a {
     top: 90px;
     padding: 20px;
     line-height: 1.5;
+  }
+  .tecnologias {
+    margin: 20px 0px 0px;
+    display: block;
+    letter-spacing: 1px;
   }
   .contenedor-imagen {
     width: 100%;
@@ -578,5 +632,67 @@ a {
   .linea {
     width: 25%;
     margin: 0 auto;
+  }
+}
+.redes-desktop {
+  position: fixed;
+  left: 20px;
+  bottom: 0;
+
+  display: none;
+  height: 330px;
+  width: 50px;
+  font-size: 1.2rem;
+  color: var(--color-subtitulos);
+  i {
+    padding: 10px;
+    position: relative;
+    top: 0;
+    transition: all 0.2s ease-in-out;
+  }
+  i:hover {
+    color: var(--color-principal);
+    top: -5px;
+  }
+  .linea {
+    width: 1px;
+    height: 35%;
+    background: var(--color-subtitulos);
+  }
+}
+
+.correo-desktop {
+  display: none;
+  position: fixed;
+  right: 20px;
+  bottom: 0;
+
+  display: none;
+  height: 330px;
+  width: 50px;
+  .textos-secundarios {
+    transform: rotate(90deg);
+    position: absolute;
+    top: 60px;
+    font-family: "SF Mono";
+    font-size: 0.85rem;
+    transition: all 0.2s ease-in-out;
+  }
+  .textos-secundarios:hover {
+    color: var(--color-principal);
+    top: 55px;
+  }
+  .linea {
+    width: 1px;
+    height: 35%;
+    background: var(--color-subtitulos);
+  }
+}
+@media (min-width: 1024px) {
+  .redes-desktop {
+    @include flexbox(column, space-between, center);
+  }
+  .correo-desktop {
+    @include flexbox(column, flex-end, center);
   }
 }
