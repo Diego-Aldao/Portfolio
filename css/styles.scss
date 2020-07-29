@@ -6,15 +6,6 @@
 }
 
 /*COLORES Y TIPOGRAFIAS*/
-:root {
-  --color-principal: #64ffda;
-  --color-titulos: #ccd6f6;
-  --color-titulos-proyectos: #e6f1ff;
-  --color-subtitulos: #8892b0;
-  --color-background: #0a192f;
-  --color-bg-descripcion: #172a45;
-}
-
 @font-face {
   font-family: "SF Mono";
   src: url(/fuentes/SFMonoRegular.woff);
@@ -28,6 +19,17 @@
   font-family: "Calibre Medium";
   src: url(/fuentes/Calibre-Medium.woff);
   font-weight: 300;
+}
+:root {
+  --color-principal: #64ffda;
+  --color-titulos: #ccd6f6;
+  --color-titulos-proyectos: #e6f1ff;
+  --color-subtitulos: #8892b0;
+  --color-background: #0a192f;
+  --color-bg-descripcion: #172a45;
+  --tipografia-mono: "SF Mono";
+  --tipografia-calibre: "Calibre";
+  --tipografia-calibre-m: "Calibre Medium";
 }
 
 /******MIXINS***********/
@@ -407,8 +409,11 @@ a {
   }
   .tecnologias {
     margin: 20px 0px 0px;
-    display: block;
     letter-spacing: 1px;
+    @include flexbox(column, center, flex-start);
+    span {
+      margin: 2px 0px;
+    }
   }
   .contenedor-imagen {
     width: 100%;
@@ -445,6 +450,7 @@ a {
     transition: all 0.5s ease-in-out;
     padding-left: 20px;
   }
+
   a {
     @include flexbox(row, space-evenly, center);
     width: 100%;
@@ -491,12 +497,27 @@ a {
   }
 }
 
+@media (min-width: 768px) {
+  .carta-proyecto {
+    .tecnologias {
+      @include flexbox(row, flex-start, center);
+      span {
+        margin: 0px 20px 0 0;
+      }
+    }
+  }
+}
+.tec-02 {
+  justify-content: flex-end;
+}
 @media (min-width: 1224px) {
   .carta-proyecto:hover {
     .contenedor-imagen:after {
       background: rgba(0, 0, 0, 0);
     }
-
+    .contenedor-botones:nth-child(4) {
+      padding-right: 20px;
+    }
     .contenedor-botones {
       width: 80%;
     }
@@ -538,6 +559,12 @@ a {
     }
     .textos-secundarios {
       margin-left: 0;
+    }
+    .tec-02 {
+      @include flexbox(row, flex-end, center);
+      span {
+        margin: 0px 0px 0px 20px;
+      }
     }
   }
   .carta-proyecto:nth-child(3) {

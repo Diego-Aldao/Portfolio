@@ -7,15 +7,6 @@
 }
 
 /*COLORES Y TIPOGRAFIAS*/
-:root {
-  --color-principal: #64ffda;
-  --color-titulos: #ccd6f6;
-  --color-titulos-proyectos: #e6f1ff;
-  --color-subtitulos: #8892b0;
-  --color-background: #0a192f;
-  --color-bg-descripcion: #172a45;
-}
-
 @font-face {
   font-family: "SF Mono";
   src: url(/fuentes/SFMonoRegular.woff);
@@ -31,6 +22,18 @@
   font-family: "Calibre Medium";
   src: url(/fuentes/Calibre-Medium.woff);
   font-weight: 300;
+}
+
+:root {
+  --color-principal: #64ffda;
+  --color-titulos: #ccd6f6;
+  --color-titulos-proyectos: #e6f1ff;
+  --color-subtitulos: #8892b0;
+  --color-background: #0a192f;
+  --color-bg-descripcion: #172a45;
+  --tipografia-mono: "SF Mono";
+  --tipografia-calibre: "Calibre";
+  --tipografia-calibre-m: "Calibre Medium";
 }
 
 /******MIXINS***********/
@@ -610,8 +613,24 @@ a {
 
 .carta-proyecto .tecnologias {
   margin: 20px 0px 0px;
-  display: block;
   letter-spacing: 1px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.carta-proyecto .tecnologias span {
+  margin: 2px 0px;
 }
 
 .carta-proyecto .contenedor-imagen {
@@ -736,9 +755,39 @@ a {
   opacity: 1;
 }
 
+@media (min-width: 768px) {
+  .carta-proyecto .tecnologias {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .carta-proyecto .tecnologias span {
+    margin: 0px 20px 0 0;
+  }
+}
+
+.tec-02 {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
 @media (min-width: 1224px) {
   .carta-proyecto:hover .contenedor-imagen:after {
     background: rgba(0, 0, 0, 0);
+  }
+  .carta-proyecto:hover .contenedor-botones:nth-child(4) {
+    padding-right: 20px;
   }
   .carta-proyecto:hover .contenedor-botones {
     width: 80%;
@@ -787,6 +836,24 @@ a {
   }
   .carta-proyecto .textos-secundarios {
     margin-left: 0;
+  }
+  .carta-proyecto .tec-02 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .carta-proyecto .tec-02 span {
+    margin: 0px 0px 0px 20px;
   }
   .carta-proyecto:nth-child(3) {
     -ms-flex-item-align: start;
