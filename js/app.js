@@ -144,20 +144,24 @@ window.onload = () => {
   });
 
   //API INTESERCTION OBSERVER
-  const pantalla = document.querySelectorAll("section");
+  const secciones = document.querySelectorAll(".intersection-obs");
+
   const options = {
-    root: null,
-    threshold: 0.5,
+    root: null, //es el default, todo el viewport
+    threshold: 0.2, // 0 dispara en el momento que el elemento entra al observador, 1 dispara cuando todo el elemento ya esta dentro del observador
   };
 
-  const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach((entrie) => {
-      if (!entrie.isIntersecting) {
+  const observer = new IntersectionObserver(function (entries, observer) {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) {
         return;
-      }
+      } //si no esta en la pantalla, termina la funcion
+      entry.target.style.top = "0px";
+      entry.target.style.left = "0px";
+      entry.target.style.opacity = "1";
     });
-  });
-  pantalla.forEach((pant) => {
-    observer.observe(pant);
+  }, options);
+  secciones.forEach((section) => {
+    observer.observe(section); //al usar querySelectorAll tengo un array con las secciones, y lo que quiero lograr es observar uno por uno
   });
 };
