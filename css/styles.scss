@@ -114,6 +114,8 @@ a {
   border-radius: 2px;
   background: none;
   text-transform: capitalize;
+  @include flexbox(row, center, center);
+  font-size: clamp(13px, 2vw, 15px);
 }
 .btn:focus,
 .btn-proyectos:focus {
@@ -626,7 +628,6 @@ a {
 
 /*******INICIO SECCION CONTACTO************/
 .contacto {
-  height: 500px;
   @include flexbox(column, flex-start, center);
   padding: 50px 0px;
   .titulos-secciones {
@@ -641,12 +642,57 @@ a {
     max-width: 500px;
     text-align: justify;
   }
+  .mini-texto {
+    font-family: var(--tipografia-calibre);
+    font-size: 1.2rem;
+  }
   .linea {
     width: 25%;
     margin: 0 auto;
   }
+  .redes-contacto {
+    width: 100%;
+    margin-top: 100px;
+    @include flexbox(column, center, center);
+  }
+  .links-contacto-redes {
+    width: 250px;
+    margin: 20px auto;
+    @include flexbox(row, flex-start, center);
+    color: var(--color-subtitulos);
+    font-size: 1.3rem;
+    cursor: pointer;
+    .textos-secundarios {
+      margin: 0 0 0 20px;
+      height: 20px;
+      transition: all 0.3s ease-in-out;
+      font-size: 1rem;
+    } //CLASE DENTRO DE LINKS PARA NO AFECTAR A LOS OTROS TEXTOS SECUNDARIOS DE LA SECCION CONTACTO
+  }
+  .iconos-contacto {
+    transition: all 0.3s ease-in-out;
+  }
+  .links-contacto-redes:hover {
+    .iconos-contacto,
+    .textos-secundarios {
+      color: var(--color-principal);
+    }
+  }
 }
 //MEDIA QUERYS CONTACTO
+
+@media (min-width: 1024px) {
+  .contacto {
+    .redes-contacto {
+      flex-direction: row;
+    }
+    .links-contacto-redes {
+      justify-content: center;
+      flex: 1;
+      margin: 0;
+    }
+  }
+}
 
 /****************INICIO EXTRAS*******************/
 .redes-desktop,

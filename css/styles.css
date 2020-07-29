@@ -133,6 +133,20 @@ a {
   border-radius: 2px;
   background: none;
   text-transform: capitalize;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: clamp(13px, 2vw, 15px);
 }
 
 .btn:focus,
@@ -990,7 +1004,6 @@ a {
 
 /*******INICIO SECCION CONTACTO************/
 .contacto {
-  height: 500px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1034,9 +1047,89 @@ a {
   text-align: justify;
 }
 
+.contacto .mini-texto {
+  font-family: var(--tipografia-calibre);
+  font-size: 1.2rem;
+}
+
 .contacto .linea {
   width: 25%;
   margin: 0 auto;
+}
+
+.contacto .redes-contacto {
+  width: 100%;
+  margin-top: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.contacto .links-contacto-redes {
+  width: 250px;
+  margin: 20px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: var(--color-subtitulos);
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.contacto .links-contacto-redes .textos-secundarios {
+  margin: 0 0 0 20px;
+  height: 20px;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  font-size: 1rem;
+}
+
+.contacto .iconos-contacto {
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.contacto .links-contacto-redes:hover .iconos-contacto,
+.contacto .links-contacto-redes:hover .textos-secundarios {
+  color: var(--color-principal);
+}
+
+@media (min-width: 1024px) {
+  .contacto .redes-contacto {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .contacto .links-contacto-redes {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    margin: 0;
+  }
 }
 
 /****************INICIO EXTRAS*******************/
