@@ -127,7 +127,6 @@ a {
 .intersection-obs {
   position: relative;
   top: 50px;
-  left: 50px;
   opacity: 0;
   -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;

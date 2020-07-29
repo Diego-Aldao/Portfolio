@@ -157,7 +157,6 @@ window.onload = () => {
         return;
       } //si no esta en la pantalla, termina la funcion
       entry.target.style.top = "0px";
-      entry.target.style.left = "0px";
       entry.target.style.opacity = "1";
     });
   }, options);
