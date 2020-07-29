@@ -39,6 +39,12 @@
   justify-content: $justify;
   align-items: $align;
 }
+@mixin background($url) {
+  background: url($url);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 
 /****GLOBALES*****/
 body {
@@ -50,70 +56,64 @@ body {
   flex-direction: column;
   align-items: center;
 }
-
 img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-
 a {
   color: inherit;
   text-decoration: inherit;
   display: block;
 }
-
 .titulos-principales,
 .titulos-secundarios {
   color: var(--color-titulos);
-  font-family: "Calibre";
+  font-family: var(--tipografia-calibre);
   text-transform: capitalize;
 }
 .titulos-principales {
-  font-size: clamp(40px, 6vw, 6rem);
+  font-size: clamp(40px, 6vw, 6rem); //CLAMP PARA AHORRARME MUCHOS MEDIA QUERYS
 }
 .titulos-secundarios {
   font-size: clamp(24px, 3vw, 2rem);
 }
 
 .textos-secundarios {
+  margin: 30px 0 40px;
   color: var(--color-subtitulos);
-  font-family: "Calibre Medium";
-  font-size: 18px;
+  font-family: var(--tipografia-calibre-m);
   font-size: clamp(18px, 2vw, 1.3rem);
   line-height: 1.4;
-  margin: 30px 0 40px;
 }
 
 .mini-texto,
 .btn {
   color: var(--color-principal);
-  font-family: "SF Mono";
+  font-family: var(--tipografia-mono);
 }
 .mini-texto {
-  font-size: 13px;
-  font-size: clamp(13px, 1.2vw, 1.1rem);
   margin-bottom: 15px;
+  font-size: clamp(13px, 1.2vw, 1.1rem);
   transform: scale(1, 1.1);
 }
 .indice {
-  display: block;
-  color: var(--color-principal);
-  font-size: 18px;
   height: 100%;
   @include flexbox(row, flex-start, center);
-  font-family: "SF Mono";
+  color: var(--color-principal);
+  font-size: 18px;
+  font-family: var(--tipografia-mono);
 }
 
 /*******BOTONES*******/
 .btn {
-  background: none;
+  width: 45vw;
+  max-width: 170px;
   padding: 15px 20px;
   border: 1px solid var(--color-principal);
   border-radius: 2px;
+  background: none;
   text-transform: capitalize;
-  width: 45vw;
-  max-width: 170px;
 }
 .btn:focus,
 .btn-proyectos:focus {
@@ -129,50 +129,12 @@ a {
   }
 }
 
-/********INICIO HEADER-PRINCIPAL*/
-.header-fixed {
-  position: fixed;
-  width: 100%;
-  max-width: 1200px;
-  @include flexbox(column, center, flex-start);
-  top: 0;
-  min-height: 400px;
-  height: 100vh;
-  padding: 0 25px;
-  .mt-header,
-  .tp-header,
-  .sub-header,
-  .ts-header,
-  .btn-header {
-    opacity: 0;
-  }
-  .subtitulo {
-    color: var(--color-subtitulos);
-    font-size: clamp(36px, 5vw, 3.5rem);
-  }
-  .textos-secundarios {
-    max-width: 350px;
-  }
-}
-
-//MEDIA QUERYS HEADER
-
-@media (min-width: 450px) {
-  .header-fixed {
-    padding: 0 50px;
-  }
-}
-@media (min-width: 1024px) {
-  .header-fixed {
-    padding: 0 100px;
-  }
-}
-/***INICIO NAVEGACION PRINCIPAL*/
+/************INICIO NAVEGACION PRINCIPAL***********/
 .navegacion-principal {
   position: fixed;
   top: 0;
   right: 0;
-  z-index: 99999999;
+  z-index: 8;
   width: 100%;
   @include flexbox(row, space-between, center);
   padding: 20px 25px 0px;
@@ -190,8 +152,8 @@ a {
   .linea-hamburguesa {
     width: 35px;
     height: 2px;
-    background: var(--color-principal);
     margin: 5px 0px;
+    background: var(--color-principal);
   }
   .linea-hamburguesa:nth-child(2) {
     width: 30px;
@@ -200,11 +162,13 @@ a {
     width: 25px;
   }
 }
+
+//INICIO NAVEGACION DESKTOP
 .navegacion-desktop {
   width: 650px;
-  padding: 0 20px;
-  opacity: 0;
   display: none;
+  opacity: 0;
+  padding: 0 20px;
   .btn {
     width: 100px;
     padding: 12px 7px;
@@ -215,14 +179,15 @@ a {
   }
   .titulos-secundarios {
     font-size: 0.8rem;
-    font-family: "SF Mono";
+    font-family: var(--tipografia-mono);
   }
   .indice {
-    font-size: 0.8rem;
     margin-right: 5px;
+    font-size: 0.8rem;
   }
 }
 
+//INICIO MEDIA QUERYS NAVGACION PRINCIPAL
 @media (min-width: 1024px) {
   .navegacion-principal {
     .hamburguesa {
@@ -234,15 +199,54 @@ a {
   }
 }
 
+//FIN SECCION NAVEGACION PRINCIPAL
+
+/************INICIO HEADER-PRINCIPAL****************/
+.header-fixed {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  max-width: 1200px;
+  height: 100vh;
+  min-height: 400px;
+  @include flexbox(column, center, flex-start);
+  padding: 0 25px;
+  .mt-header,
+  .tp-header,
+  .sub-header,
+  .ts-header,
+  .btn-header {
+    opacity: 0; //PARA ANIMAR CON GSAP
+  }
+  .subtitulo {
+    color: var(--color-subtitulos);
+    font-size: clamp(36px, 5vw, 3.5rem);
+  }
+  .textos-secundarios {
+    max-width: 350px;
+  }
+}
+
+//MEDIA QUERYS HEADER
+@media (min-width: 450px) {
+  .header-fixed {
+    padding: 0 50px;
+  }
+}
+@media (min-width: 1024px) {
+  .header-fixed {
+    padding: 0 100px;
+  }
+}
 //FIN SECCION HEADER
 
 /*********INICIO SECCION CONTENIDO PRINCIPAL*******/
 .contenido-principal {
-  max-width: 1200px;
   position: relative;
   top: 730px;
-  background: var(--color-background);
+  max-width: 1200px;
   padding: 20px 25px 0px;
+  background: var(--color-background);
   .titulos-secciones {
     width: 100%;
     height: 40px;
@@ -257,8 +261,8 @@ a {
   .linea {
     width: 35%;
     height: 1px;
-    background: #3c4357;
     margin-left: auto;
+    background: #3c4357;
   }
 }
 
@@ -268,7 +272,6 @@ a {
     padding: 20px 50px 0px;
   }
 }
-
 @media (min-width: 768px) {
   .contenido-principal {
     display: grid;
@@ -302,7 +305,9 @@ a {
   }
 }
 
-//INICIO SECCION SOBRE MI
+//FIN SECCION PRINCIPAL
+
+/*******INICIO SECCION SOBRE MI*******/
 
 .sobre-mi {
   .titulos-secciones {
@@ -326,20 +331,20 @@ a {
     width: 100%;
     .textos-secundarios {
       width: 100%;
-      margin: 0;
-      line-height: 1.5;
       margin: 15px 0 10px;
-      font-family: "SF Mono";
+      font-family: var(--tipografia-mono);
       font-size: 0.8rem;
+      line-height: 1.5;
     }
   }
   .fa-caret-right {
-    color: var(--color-principal);
     width: 5%;
     margin-top: 20px;
+    color: var(--color-principal);
   }
 }
 
+//MEDIA QUERYS SOBRE MI
 @media (min-width: 450px) {
   .sobre-mi {
     .items-proceso-tecnologias {
@@ -348,37 +353,36 @@ a {
   }
 }
 
-/*INICIO SECCION PROCESO*/
+/***********INICIO SECCION PROCESO**********/
 .proceso {
   .lista-proceso-tecnologias {
     width: 100%;
     list-style-type: none;
   }
   .items-proceso-tecnologias {
-    @include flexbox(row, center, flex-start);
     max-width: 450px;
+    @include flexbox(row, center, flex-start);
   }
   .textos-secundarios {
     width: 95%;
     margin: 20px 0px;
   }
   .fa-caret-right {
-    color: var(--color-principal);
     width: 5%;
     margin-top: 22px;
+    color: var(--color-principal);
   }
   .mini-texto {
+    font-family: var(--tipografia-calibre-m);
     font-size: 1.2rem;
-    font-family: "Calibre Medium";
   }
 }
 
-/*INICIO SECCION PROYECTOS*/
+/**********INICIO SECCION PROYECTOS**********/
 .proyectos {
   @include flexbox(column, center, center);
   overflow: hidden;
-}
-
+} //NO INCLUI EL ESTO DEL CONTENIDO DENTRO DE PROYECTOS PORQUE QUEDARIAN SELECTORES MUY LARGOS Y NO HAY CONFLICTO DE SELECTORES
 .carta-proyecto {
   position: relative;
   width: 100%;
@@ -387,30 +391,30 @@ a {
   margin: 55px 0;
   transition: all 0.5s ease-in-out;
   .titulos-secundarios {
-    margin: 30px 20px 0;
-    height: 60px;
     position: absolute;
     top: 10px;
-    color: var(--color-titulos-proyectos);
-    @include flexbox(column, center, flex-start);
     z-index: 1;
+    height: 60px;
+    margin: 30px 20px 0;
+    @include flexbox(column, center, flex-start);
+    color: var(--color-titulos-proyectos);
     font-size: clamp(24px, 2.5vw, 1.6rem);
   }
   .mini-texto {
     font-size: 0.7rem;
   }
   .textos-secundarios {
-    margin: 20px 0px 0px;
     position: absolute;
     z-index: 2;
     top: 90px;
+    margin: 20px 0px 0px;
     padding: 20px;
     line-height: 1.5;
   }
   .tecnologias {
     margin: 20px 0px 0px;
-    letter-spacing: 1px;
     @include flexbox(column, center, flex-start);
+    letter-spacing: 1px;
     span {
       margin: 2px 0px;
     }
@@ -421,24 +425,35 @@ a {
     position: relative;
     transition: all 0.5s ease-in-out;
   }
+  .contenedor-imagen:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    background: #002e2cde;
+    transition: all 0.5s ease-in-out;
+  }
   .imagen-01 {
-    background: url("/imagenes/cypher-movil.webp") center / cover no-repeat;
+    @include background("/imagenes/cypher-movil.webp");
   }
   .imagen-02 {
-    background: url("/imagenes/rogue-movile.webp") center / cover no-repeat;
+    @include background("/imagenes/rogue-movile.webp");
   }
   .imagen-03 {
-    background: url("/imagenes/skylink-movile.webp") center / cover no-repeat;
+    @include background("/imagenes/skylink-movile.webp");
   }
   @media (min-width: 768px) {
     .imagen-01 {
-      background: url("/imagenes/cypher-desktop.webp") center / cover no-repeat;
+      @include background("/imagenes/cypher-desktop.webp");
     }
     .imagen-02 {
-      background: url("/imagenes/rogue-desktop.webp") center / cover no-repeat;
+      @include background("/imagenes/rogue-desktop.webp");
     }
     .imagen-03 {
-      background: url("/imagenes/skylink-desktop.webp") center / cover no-repeat;
+      @include background("/imagenes/skylink-desktop.webp");
     }
   }
   .contenedor-botones {
@@ -447,14 +462,13 @@ a {
     width: 120px;
     height: 70px;
     @include flexbox(row, flex-start, center);
-    transition: all 0.5s ease-in-out;
     padding-left: 20px;
+    transition: all 0.5s ease-in-out;
   }
-
-  a {
-    @include flexbox(row, space-evenly, center);
+  .links-exteriores {
     width: 100%;
     height: 100%;
+    @include flexbox(row, space-evenly, center); //contenedor de imagen
   }
   .proyecto-02-a {
     flex-direction: row-reverse;
@@ -463,26 +477,14 @@ a {
     color: var(--color-principal);
   }
   .texto-btn-proyectos {
-    font-size: 0.7rem;
     height: 100%;
     visibility: hidden;
     opacity: 0;
+    font-size: 0.7rem;
     transition: visibility 0.5s ease-in-out;
     transition: opacity 0.5s ease-in-out 0.5s;
   }
 }
-.contenedor-imagen:after {
-  content: "";
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  left: 0;
-  top: 0;
-  background: #002e2cde;
-  z-index: 0;
-  transition: all 0.5s ease-in-out;
-}
-
 .carta-proyecto:hover {
   .contenedor-imagen::after {
     background: #002e2ccb;
@@ -497,8 +499,18 @@ a {
   }
 }
 
+//MEDIA QUERYS PROYECTOS
 @media (min-width: 768px) {
   .carta-proyecto {
+    max-width: 500px;
+    height: 350px;
+    align-self: center;
+    .textos-secundarios {
+      max-width: 400px;
+      margin-left: 20px;
+      background-color: #172a45;
+      font-size: 1.1rem;
+    }
     .tecnologias {
       @include flexbox(row, flex-start, center);
       span {
@@ -507,40 +519,7 @@ a {
     }
   }
 }
-.tec-02 {
-  justify-content: flex-end;
-}
 @media (min-width: 1224px) {
-  .carta-proyecto:hover {
-    .contenedor-imagen:after {
-      background: rgba(0, 0, 0, 0);
-    }
-    .contenedor-botones:nth-child(4) {
-      padding-right: 20px;
-    }
-    .contenedor-botones {
-      width: 80%;
-    }
-  }
-}
-
-//MEDIA QUERYS PROYECTOS
-
-@media (min-width: 768px) {
-  .carta-proyecto {
-    max-width: 500px;
-    height: 350px;
-    align-self: center;
-    .textos-secundarios {
-      max-width: 400px;
-      font-size: 1.1rem;
-      background-color: #172a45;
-      margin-left: 20px;
-    }
-  }
-}
-
-@media (min-width: 1244px) {
   .carta-proyecto {
     align-self: flex-end;
     .titulos-secundarios {
@@ -554,8 +533,8 @@ a {
     }
     .segundo-sub {
       right: -110px;
-      text-align: right;
       justify-content: flex-end;
+      text-align: right;
     }
     .textos-secundarios {
       margin-left: 0;
@@ -570,28 +549,39 @@ a {
   .carta-proyecto:nth-child(3) {
     align-self: flex-start;
   }
+  .carta-proyecto:hover {
+    .contenedor-imagen:after {
+      background: rgba(0, 0, 0, 0);
+    }
+    .contenedor-botones:nth-child(4) {
+      padding-right: 20px;
+    }
+    .contenedor-botones {
+      width: 80%;
+    }
+  }
 }
+//FIN SECCION PROYECTOS
 
-/*****INICIO MENU DESPLEGABLE*/
-
+/*************INICIO MENU DESPLEGABLE***********/
 .menu-desplegable {
   position: fixed;
+  right: -100%;
+  z-index: 9;
   width: 100%;
   max-width: 500px;
-  right: -100%;
   height: 100%;
-  background: var(--color-bg-descripcion);
-  z-index: 9999999999;
   display: flex;
   flex-direction: column;
+  background: var(--color-bg-descripcion);
   .btn-cerrar {
     width: 50px;
     height: 50px;
     align-self: flex-end;
-    @include flexbox(column, center, center);
+    @include flexbox(column, center, center); //para alinear la cruz
   }
   .linea-cerrar {
-    position: absolute;
+    position: absolute; //para alinear la cruz
     width: 40px;
     height: 2px;
     background: var(--color-principal);
@@ -603,8 +593,8 @@ a {
   .contenido-desplegable {
     width: 100%;
     height: calc(100% - 50px);
-    padding: 70px 0 0;
     @include flexbox(column, flex-start, center);
+    padding: 70px 0 0;
   }
   a {
     @include flexbox(row, flex-start, center);
@@ -627,82 +617,79 @@ a {
   }
 }
 
+//MEDIA QUERYS MENU DESPLEGABLE
 @media (min-width: 1024px) {
   .menu-desplegable {
     display: none;
   }
 }
 
-//INICIO SECCION CONTACTO
-
+/*******INICIO SECCION CONTACTO************/
 .contacto {
-  padding: 50px 0px;
-  @include flexbox(column, flex-start, center);
   height: 500px;
+  @include flexbox(column, flex-start, center);
+  padding: 50px 0px;
   .titulos-secciones {
-    margin-bottom: 50px;
     @include flexbox(row, center, center);
+    margin-bottom: 50px;
   }
   .titulos-principales {
     text-align: center;
     font-size: clamp(36px, 5vw, 3.5rem);
   }
   .textos-secundarios {
-    text-align: justify;
     max-width: 500px;
+    text-align: justify;
   }
   .linea {
     width: 25%;
     margin: 0 auto;
   }
 }
-.redes-desktop {
-  position: fixed;
-  left: 20px;
-  bottom: 0;
+//MEDIA QUERYS CONTACTO
 
-  display: none;
+/****************INICIO EXTRAS*******************/
+.redes-desktop,
+.correo-desktop {
+  position: fixed;
+  bottom: 0;
   height: 330px;
   width: 50px;
-  font-size: 1.2rem;
+  display: none;
+  .linea {
+    width: 1px;
+    height: 35%;
+    background: var(--color-subtitulos);
+  }
+}
+.redes-desktop {
+  left: 20px;
   color: var(--color-subtitulos);
+  font-size: 1.2rem;
   i {
-    padding: 10px;
     position: relative;
     top: 0;
+    padding: 10px;
     transition: all 0.2s ease-in-out;
   }
   i:hover {
-    color: var(--color-principal);
     top: -5px;
-  }
-  .linea {
-    width: 1px;
-    height: 35%;
-    background: var(--color-subtitulos);
+    color: var(--color-principal);
   }
 }
-
 .correo-desktop {
-  display: none;
-  position: fixed;
   right: 20px;
-  bottom: 0;
-
-  display: none;
-  height: 330px;
-  width: 50px;
   .textos-secundarios {
-    transform: rotate(90deg);
     position: absolute;
     top: 60px;
-    font-family: "SF Mono";
+    font-family: var(--tipografia-mono);
     font-size: 0.85rem;
+    transform: rotate(90deg);
     transition: all 0.2s ease-in-out;
   }
   .textos-secundarios:hover {
-    color: var(--color-principal);
     top: 55px;
+    color: var(--color-principal);
   }
   .linea {
     width: 1px;
@@ -710,6 +697,7 @@ a {
     background: var(--color-subtitulos);
   }
 }
+//MEDIA QUERYS EXTRAS
 @media (min-width: 1024px) {
   .redes-desktop {
     @include flexbox(column, space-between, center);
