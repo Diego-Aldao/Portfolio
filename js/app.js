@@ -1,7 +1,7 @@
 window.onload = () => {
   //WINDOW ONLOAD PARA NO CONTAMINAR EL SCOPE GLOBAL Y PARA AGILIZAR LA CARGA DEL DOCUMENTO
-  //EVENT LISTENERS BARRA SUPERIOR(SCROLL)
 
+  //EVENT LISTENERS BARRA SUPERIOR(SCROLL)
   const barraNavPrincipal = document.querySelector(".navegacion-principal");
   const btnMenuDesktop = document.querySelector(".btn-menu-desktop");
   const btnCurriculum = document.querySelectorAll(".btn-curriculum");

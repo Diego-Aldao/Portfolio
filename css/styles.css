@@ -528,6 +528,7 @@ a {
   }
 }
 
+/*FIN SECCION SOBRE MI*/
 /***********INICIO SECCION PROCESO**********/
 .proceso .lista-proceso-tecnologias {
   width: 100%;
@@ -567,6 +568,7 @@ a {
   font-size: 1.2rem;
 }
 
+/*FIN SECCION PROCESOS*/
 /**********INICIO SECCION PROYECTOS**********/
 .proyectos {
   display: -webkit-box;
@@ -1011,6 +1013,7 @@ a {
   }
 }
 
+/*FIN SECCION DESPLEGABLE*/
 /*******INICIO SECCION CONTACTO************/
 .contacto {
   display: -webkit-box;
@@ -1141,6 +1144,8 @@ a {
   }
 }
 
+/*FIN SECCION CONTACTO
+
 /****************INICIO EXTRAS*******************/
 .redes-desktop,
 .correo-desktop {
@@ -1235,4 +1240,6 @@ a {
             align-items: center;
   }
 }
+
+/*FIN SECCION EXTRAS*/
 /*# sourceMappingURL=styles.css.map */

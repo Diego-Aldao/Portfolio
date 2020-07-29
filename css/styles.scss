@@ -208,7 +208,6 @@ a {
     }
   }
 }
-
 //FIN SECCION NAVEGACION PRINCIPAL
 
 /************INICIO HEADER-PRINCIPAL****************/
@@ -314,11 +313,9 @@ a {
     top: 90vh;
   }
 }
-
 //FIN SECCION PRINCIPAL
 
 /*******INICIO SECCION SOBRE MI*******/
-
 .sobre-mi {
   .titulos-secciones {
     margin-bottom: 50px;
@@ -362,6 +359,7 @@ a {
     }
   }
 }
+/*FIN SECCION SOBRE MI*/
 
 /***********INICIO SECCION PROCESO**********/
 .proceso {
@@ -387,6 +385,9 @@ a {
     font-size: 1.2rem;
   }
 }
+//MEDIA QUERYS PROCESO
+
+/*FIN SECCION PROCESOS*/
 
 /**********INICIO SECCION PROYECTOS**********/
 .proyectos {
@@ -633,6 +634,7 @@ a {
     display: none;
   }
 }
+/*FIN SECCION DESPLEGABLE*/
 
 /*******INICIO SECCION CONTACTO************/
 .contacto {
@@ -701,6 +703,7 @@ a {
     }
   }
 }
+/*FIN SECCION CONTACTO
 
 /****************INICIO EXTRAS*******************/
 .redes-desktop,
@@ -760,3 +763,4 @@ a {
     @include flexbox(column, flex-end, center);
   }
 }
+/*FIN SECCION EXTRAS*/
