@@ -1,4 +1,37 @@
 window.onload = () => {
+  //WINDOW ONLOAD PARA NO CONTAMINAR EL SCOPE GLOBAL Y PARA AGILIZAR LA CARGA DEL DOCUMENTO
+  //EVENT LISTENERS BARRA SUPERIOR(SCROLL)
+
+  const barraNavPrincipal = document.querySelector(".navegacion-principal");
+  const btnMenuDesktop = document.querySelector(".btn-menu-desktop");
+  const btnCurriculum = document.querySelectorAll(".btn-curriculum");
+
+  const scrollearBarraSuperior = () => {
+    if (
+      document.body.scrollTop > 250 ||
+      document.documentElement.scrollTop > 250
+    ) {
+      gsap.to(barraNavPrincipal, {
+        top: "-150px",
+      });
+      gsap.to(btnMenuDesktop, {
+        opacity: 0,
+      }); //ESTA CLASE PARA NO CREAR CONFLICTO CON EL OTRO BOTON CURRICULUM CON LAS ANIMACIONES GSAP//
+    } else {
+      gsap.to(barraNavPrincipal, {
+        top: "0px",
+      });
+      gsap.to(btnCurriculum, {
+        delay: 0.5,
+        opacity: 1,
+      });
+    }
+  };
+
+  window.onscroll = () => {
+    scrollearBarraSuperior();
+  };
+
   //ANIMACIONES GSAP HEADER
   const animarTexto = (textoTarget) => {
     gsap.from(textoTarget, {
@@ -11,13 +44,12 @@ window.onload = () => {
       opacity: 1,
       duration: 0.8,
     });
-  };
+  }; //FUNCION PARA NO REPETIR LA MISMA ANIMACION EN EL SUBTITULO Y EL TEXTO SECUNDARIO
 
   const miniTextoHeader = document.querySelector(".mt-header");
   gsap.to(miniTextoHeader, {
-    delay: 0.3,
     opacity: 1,
-    duration: 0.7,
+    duration: 0.5,
   });
 
   const tituloPrincipalHeader = document.querySelector(".tp-header");
@@ -33,8 +65,8 @@ window.onload = () => {
   });
 
   const subtituloHeader = document.querySelector(".sub-header");
-  const textoSecundarioHeader = document.querySelector(".ts-header");
   animarTexto(subtituloHeader);
+  const textoSecundarioHeader = document.querySelector(".ts-header");
   animarTexto(textoSecundarioHeader);
 
   const btnHeader = document.querySelector(".btn-header");
@@ -46,6 +78,69 @@ window.onload = () => {
   gsap.to(".btn-header", {
     delay: 1.3,
     opacity: 1,
+  });
+
+  //EVENT LISTENERS NAVEGACION PRINCIPAL / MENU DESPLEGABLE
+  const btnAbrir = document.querySelector(".hamburguesa");
+  const btnCerrar = document.querySelector(".btn-cerrar");
+  const menuDesplazable = document.querySelector(".menu-desplegable");
+  const linksInternos = document.querySelectorAll(".links-internos");
+  const lineaHamburguesa = document.querySelectorAll(".linea-hamburguesa");
+  const lineaCerrar = document.querySelectorAll(".linea-cerrar");
+  const lineaCerrarDos = document.querySelectorAll(".linea-02");
+  const navegacionDesktop = document.querySelector(".navegacion-desktop");
+
+  //ME PODRIA HABER AHORRADO TODOS ESTOS SELECTORES YA QUE PODRIA PASARLOS DIRECTAMENTE CON GSAP, PERO EN EL CASO DE QUE EN UN FUTURO CAMBIE LA MANERA DE ANIMAR ESTA SECCION O NECESITE HACER ALGO EXTRA CON ELLA, DECIDI SELECCIONAR TODOS LOS ELEMENTOS
+
+  gsap.to(navegacionDesktop, {
+    delay: 0.8,
+    duration: 1,
+    opacity: 1,
+  });
+
+  const cerrarDesplegable = () => {
+    gsap.to(menuDesplazable, {
+      delay: 0.4,
+      right: "-100%",
+    });
+    gsap.to(lineaHamburguesa, {
+      duration: 0.3,
+      margin: "5px 0px",
+      height: "2px",
+    });
+  };
+
+  const abrirDesplegable = () => {
+    gsap.to(lineaHamburguesa, {
+      margin: 0,
+      height: "1px",
+    });
+    gsap.to(menuDesplazable, {
+      delay: 0.3,
+      right: 0,
+    });
+  };
+
+  btnAbrir.addEventListener("click", () => {
+    gsap.to(lineaCerrar, {
+      transform: "rotate(135deg)",
+    });
+    gsap.to(lineaCerrarDos, {
+      transform: "rotate(-135deg)",
+    });
+    abrirDesplegable();
+  });
+  btnCerrar.addEventListener("click", () => {
+    gsap.to(lineaCerrar, {
+      transform: "rotate(0deg)",
+    });
+    cerrarDesplegable();
+  });
+
+  linksInternos.forEach((link) => {
+    link.addEventListener("click", () => {
+      cerrarDesplegable();
+    });
   });
 
   //API INTESERCTION OBSERVER
@@ -65,87 +160,4 @@ window.onload = () => {
   pantalla.forEach((pant) => {
     observer.observe(pant);
   });
-
-  //EVENT LISTENERS NAVEGACION PRINCIPAL
-  const btnAbrir = document.querySelector(".hamburguesa");
-  const btnCerrar = document.querySelector(".btn-cerrar");
-  const menuDesplazable = document.querySelector(".menu-desplegable");
-  const linksInternos = document.querySelectorAll(".links-internos");
-
-  const cerrarDesplegable = () => {
-    gsap.to(menuDesplazable, {
-      delay: 0.4,
-      right: "-100%",
-    });
-    gsap.to(".linea-hamburguesa", {
-      duration: 0.3,
-      margin: "5px 0px",
-      height: "2px",
-    });
-  };
-
-  const abrirDesplegable = () => {
-    gsap.to(".linea-hamburguesa", {
-      margin: 0,
-      height: "1px",
-    });
-    gsap.to(menuDesplazable, {
-      delay: 0.3,
-      right: 0,
-    });
-  };
-
-  btnAbrir.addEventListener("click", () => {
-    gsap.to(".linea-cerrar", {
-      transform: "rotate(135deg)",
-    });
-    gsap.to(".linea-02", {
-      transform: "rotate(-135deg)",
-    });
-    abrirDesplegable();
-  });
-  btnCerrar.addEventListener("click", () => {
-    gsap.to(".linea-cerrar", {
-      transform: "rotate(0deg)",
-    });
-    cerrarDesplegable();
-  });
-
-  linksInternos.forEach((link) => {
-    link.addEventListener("click", () => {
-      cerrarDesplegable();
-    });
-  });
-
-  gsap.to(".navegacion-desktop", {
-    delay: 0.8,
-    duration: 1,
-    opacity: 1,
-  });
-
-  window.onscroll = function () {
-    scrollFunction();
-  };
-
-  function scrollFunction() {
-    if (
-      document.body.scrollTop > 250 ||
-      document.documentElement.scrollTop > 250
-    ) {
-      gsap.to(".navegacion-principal", {
-        top: "-150px",
-      });
-      gsap.to(".btn-menu-desktop", {
-        opacity: 0,
-      });
-    } else {
-      gsap.to(".navegacion-principal", {
-        top: "0px",
-      });
-      gsap.to(".btn-curriculum", {
-        delay: 0.5,
-        opacity: 1,
-      });
-    }
-  }
 };
