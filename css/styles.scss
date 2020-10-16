@@ -73,7 +73,11 @@ a {
   text-transform: capitalize;
 }
 .titulos-principales {
-  font-size: clamp(40px, 6vw, 6rem); //CLAMP PARA AHORRARME MUCHOS MEDIA QUERYS
+  font-size: clamp(
+    40px,
+    6vw,
+    6rem
+  ); //CLAMP PARA AHORRARME MUCHOS MEDIA QUERYS
 }
 .titulos-secundarios {
   font-size: clamp(24px, 3vw, 2rem);
@@ -392,7 +396,7 @@ a {
 .proyectos {
   @include flexbox(column, center, center);
   overflow: hidden;
-} //NO INCLUI EL ESTO DEL CONTENIDO DENTRO DE PROYECTOS PORQUE QUEDARIAN SELECTORES MUY LARGOS Y NO HAY CONFLICTO DE SELECTORES
+} //NO INCLUI EL RESTO DEL CONTENIDO DENTRO DE PROYECTOS PORQUE QUEDARIAN SELECTORES MUY LARGOS Y NO HAY CONFLICTO DE SELECTORES
 .carta-proyecto {
   position: relative;
   width: 100%;
@@ -450,20 +454,20 @@ a {
     @include background("/imagenes/cypher-movil.webp");
   }
   .imagen-02 {
-    @include background("/imagenes/rogue-movile.webp");
+    @include background("/imagenes/ink-movil.webp");
   }
   .imagen-03 {
-    @include background("/imagenes/skylink-movile.webp");
+    @include background("/imagenes/exo-movil.webp");
   }
   @media (min-width: 768px) {
     .imagen-01 {
       @include background("/imagenes/cypher-desktop.webp");
     }
     .imagen-02 {
-      @include background("/imagenes/rogue-desktop.webp");
+      @include background("/imagenes/ink-desktop.webp");
     }
     .imagen-03 {
-      @include background("/imagenes/skylink-desktop.webp");
+      @include background("/imagenes/exo-desktop.webp");
     }
   }
   .contenedor-botones {
@@ -545,6 +549,9 @@ a {
       right: -110px;
       justify-content: flex-end;
       text-align: right;
+      .mini-texto {
+        margin-left: auto;
+      }
     }
     .textos-secundarios {
       margin-left: 0;

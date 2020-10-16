@@ -683,14 +683,14 @@ a {
 }
 
 .carta-proyecto .imagen-02 {
-  background: url("/imagenes/rogue-movile.webp");
+  background: url("/imagenes/ink-movil.webp");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
 
 .carta-proyecto .imagen-03 {
-  background: url("/imagenes/skylink-movile.webp");
+  background: url("/imagenes/exo-movil.webp");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -704,13 +704,13 @@ a {
     background-repeat: no-repeat;
   }
   .carta-proyecto .imagen-02 {
-    background: url("/imagenes/rogue-desktop.webp");
+    background: url("/imagenes/ink-desktop.webp");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
   }
   .carta-proyecto .imagen-03 {
-    background: url("/imagenes/skylink-desktop.webp");
+    background: url("/imagenes/exo-desktop.webp");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -851,6 +851,9 @@ a {
         -ms-flex-pack: end;
             justify-content: flex-end;
     text-align: right;
+  }
+  .carta-proyecto .segundo-sub .mini-texto {
+    margin-left: auto;
   }
   .carta-proyecto .textos-secundarios {
     margin-left: 0;
