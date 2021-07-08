@@ -70,12 +70,12 @@ window.onload = () => {
   animarTexto(textoSecundarioHeader);
 
   const btnHeader = document.querySelector(".btn-header");
-  gsap.from(".btn-header", {
+  gsap.from(btnHeader, {
     delay: 1.8,
     color: "#ccd6f6",
     border: "1px solid #ccd6f6",
   });
-  gsap.to(".btn-header", {
+  gsap.to(btnHeader, {
     delay: 1.3,
     opacity: 1,
   });

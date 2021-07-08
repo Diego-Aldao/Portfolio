@@ -155,11 +155,18 @@ a {
       -ms-flex-align: center;
           align-items: center;
   font-size: clamp(13px, 2vw, 15px);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
 
 .btn:focus,
 .btn-proyectos:focus {
   outline: 1px solid var(--color-principal);
+}
+
+.btn-header:hover {
+  background: var(--color-principal);
+  color: var(--color-background) !important;
 }
 
 .btn-proyectos {
@@ -636,6 +643,8 @@ a {
   margin: 20px 0px 0px;
   padding: 20px;
   line-height: 1.5;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
 .carta-proyecto .tecnologias {
@@ -811,7 +820,7 @@ a {
   .carta-proyecto .textos-secundarios {
     max-width: 400px;
     margin-left: 20px;
-    background-color: #172a45;
+    background-color: #172a4567;
     font-size: 1.1rem;
   }
   .carta-proyecto .tecnologias {
@@ -891,6 +900,9 @@ a {
   }
   .carta-proyecto:hover .contenedor-botones:nth-child(4) {
     padding-right: 20px;
+  }
+  .carta-proyecto:hover .textos-secundarios {
+    background-color: #172a45;
   }
   .carta-proyecto:hover .contenedor-botones {
     width: 80%;
