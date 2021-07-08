@@ -73,11 +73,7 @@ a {
   text-transform: capitalize;
 }
 .titulos-principales {
-  font-size: clamp(
-    40px,
-    6vw,
-    6rem
-  ); //CLAMP PARA AHORRARME MUCHOS MEDIA QUERYS
+  font-size: clamp(40px, 6vw, 6rem); //CLAMP PARA AHORRARME MUCHOS MEDIA QUERYS
 }
 .titulos-secundarios {
   font-size: clamp(24px, 3vw, 2rem);
@@ -451,7 +447,7 @@ a {
     transition: all 0.5s ease-in-out;
   }
   .imagen-01 {
-    @include background("/imagenes/cypher-movil.webp");
+    @include background("/imagenes/modern-movil.webp");
   }
   .imagen-02 {
     @include background("/imagenes/ink-movil.webp");
@@ -461,7 +457,7 @@ a {
   }
   @media (min-width: 768px) {
     .imagen-01 {
-      @include background("/imagenes/cypher-desktop.webp");
+      @include background("/imagenes/modern-desktop.webp");
     }
     .imagen-02 {
       @include background("/imagenes/ink-desktop.webp");
