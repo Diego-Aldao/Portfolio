@@ -457,26 +457,17 @@ a {
     background: #002e2cde;
     transition: all 0.5s ease-in-out;
   }
+
   .imagen-01 {
-    @include background("/imagenes/modern-movil.webp");
+    @include background("/imagenes/echo.jpg");
   }
   .imagen-02 {
-    @include background("/imagenes/ink-movil.webp");
+    @include background("/imagenes/ink-desktop.webp");
   }
   .imagen-03 {
-    @include background("/imagenes/exo-movil.webp");
+    @include background("/imagenes/covid.webp");
   }
-  @media (min-width: 768px) {
-    .imagen-01 {
-      @include background("/imagenes/modern-desktop.webp");
-    }
-    .imagen-02 {
-      @include background("/imagenes/ink-desktop.webp");
-    }
-    .imagen-03 {
-      @include background("/imagenes/exo-desktop.webp");
-    }
-  }
+
   .contenedor-botones {
     position: absolute;
     bottom: 0;
@@ -744,6 +735,7 @@ a {
     top: 0;
     padding: 10px;
     transition: all 0.2s ease-in-out;
+    margin-bottom: 20px;
   }
   i:hover {
     top: -5px;
@@ -773,7 +765,7 @@ a {
 //MEDIA QUERYS EXTRAS
 @media (min-width: 1024px) {
   .redes-desktop {
-    @include flexbox(column, space-between, center);
+    @include flexbox(column, flex-end, center);
   }
   .correo-desktop {
     @include flexbox(column, flex-end, center);

@@ -691,45 +691,24 @@ a {
 }
 
 .carta-proyecto .imagen-01 {
-  background: url("/imagenes/modern-movil.webp");
+  background: url("/imagenes/echo.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
 
 .carta-proyecto .imagen-02 {
-  background: url("/imagenes/ink-movil.webp");
+  background: url("/imagenes/ink-desktop.webp");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
 
 .carta-proyecto .imagen-03 {
-  background: url("/imagenes/exo-movil.webp");
+  background: url("/imagenes/covid.webp");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-}
-
-@media (min-width: 768px) {
-  .carta-proyecto .imagen-01 {
-    background: url("/imagenes/modern-desktop.webp");
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
-  .carta-proyecto .imagen-02 {
-    background: url("/imagenes/ink-desktop.webp");
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
-  .carta-proyecto .imagen-03 {
-    background: url("/imagenes/exo-desktop.webp");
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
 }
 
 .carta-proyecto .contenedor-botones {
@@ -1195,6 +1174,7 @@ a {
   padding: 10px;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
+  margin-bottom: 20px;
 }
 
 .redes-desktop i:hover {
@@ -1237,9 +1217,9 @@ a {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
